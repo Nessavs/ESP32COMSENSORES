@@ -67,7 +67,7 @@ void loop() {
         client.print("<p>");
         client.print(temperatura);
         client.println(" °C</p>");
-        client.println("<p>💡 LED está sempre ACESO</p>");
+        client.println("<p>💡 LED está sempre aceso</p>");
         client.println("</body></html>");
         break;
       }
