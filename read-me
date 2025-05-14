@@ -1,0 +1,66 @@
+## Trabalho do 5.º semestre – disciplina Redes de Comunicação e Aplicações Distribuídas (IoT)
+Sensor de temperatura LM35 com ESP32 e servidor HTTP
+
+**Visão geral**
+Este projeto demonstra um pequeno sistema IoT que:
+
+lê a temperatura ambiente com um sensor LM35
+
+converte a leitura analógica para graus Celsius no ESP32
+
+mantém um LED permanentemente aceso como indicador de funcionamento
+
+publica a temperatura em uma página web simples via Wi‑Fi
+
+## Requisitos de hardware
+
+ESP32 1	qualquer modelo com ADC ativo
+Sensor LM35	1	saída linear 10 mV / °C
+LED 5mm	1	qualquer cor
+Resistor 330Ω	1	em série com o LED
+Protoboard + jumpers	—	para as ligações
+
+## Configuração do ambiente
+1.Instale a IDE Arduino.
+
+2.Adicione o pacote do ESP32 nas Preferências da IDE.
+
+3.Selecione a placa correta (por exemplo, ESP32 Dev Module) e a porta COM apropriada.
+
+4.Clone ou baixe este repositório.
+
+## Compilação e upload
+1. Abra sensor_lm35_led.ino (ou main.cpp, conforme seu ambiente).
+
+2.Altere as linhas abaixo com os dados da sua rede Wi‑Fi:
+
+const char* ssid     = "SEU_SSID";
+const char* password = "SUA_SENHA";
+
+3.Conecte o ESP32 ao computador por USB.
+
+4.Clique em Upload (ou pio run -t upload se estiver usando PlatformIO).
+
+5.Após o envio, abra o Monitor Serial a 115 200 baud para acompanhar logs.
+
+## Funcionamento
+1.O ESP32 liga, conecta ao Wi‑Fi e inicia um servidor na porta 80.
+
+2.A cada requisição HTTP, ele:
+lê o valor analógico no pino 34
+converte tensão → temperatura com a fórmula:
+temperatura = ((analogValue * 3.3 / 4095.0) * 100.0) / 3;
+devolve uma página HTML exibindo a temperatura atual e informando que o LED está aceso.
+
+3.A página pode ser acessada pelo endereço IP mostrado no serial (ex.: http://192.168.0.105).
+
+## Resultado esperado
+Temperatura consistente (≈ ±0,5 °C após correção da fórmula).
+
+LED aceso continuamente indicando que o sistema está ligado.
+
+Página web simples, atualizando o valor a cada refresh manual.
+
+Atenciosamente,
+Larrisa Mones, Emerson Gustavo e Vanessa da silva
+
