@@ -17,7 +17,6 @@ publica a temperatura em uma página web simples via Wi‑Fi
 ESP32 1	qualquer modelo com ADC ativo
 Sensor LM35	1	saída linear 10 mV / °C
 LED 5mm	1	qualquer cor
-Resistor 330Ω	1	em série com o LED
 Protoboard + jumpers	—	para as ligações
 
 ## Configuração do ambiente
@@ -62,5 +61,5 @@ LED aceso continuamente indicando que o sistema está ligado.
 Página web simples, atualizando o valor a cada refresh manual.
 
 Atenciosamente,
-Larrisa Mones, Emerson Gustavo e Vanessa da silva
+Emerson Gustavo, Larissa Mones Bedin, Vanessa da Silva. 
 
